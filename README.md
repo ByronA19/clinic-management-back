@@ -16,6 +16,21 @@ API para manejar una clínica: doctores, pacientes, especialidades, citas y usua
 - PostgreSQL instalado y corriendo
 - Crear una base de datos vacía llamada `clinic_management` (solo crearla, no hay que crear tablas ni nada más a mano)
 
+## Instalación
+
+###  Clonar el repositorio
+
+```bash
+git clone <URL_DEL_REPOSITORIO>
+cd clinic-management
+```
+
+### Descargar las dependencias
+
+```bash
+./mvnw clean install
+```
+
 ## Configuración
 
 Antes de levantar el proyecto, revisa `src/main/resources/application.properties` y ajusta el usuario/contraseña de tu PostgreSQL local si no son los mismos:
@@ -46,7 +61,7 @@ Esto solo pasa la primera vez (cuando las tablas están vacías). Si vuelves a c
 ## Cómo correrlo
 
 ```bash
-mvnw spring-boot:run
+./mvnw spring-boot:run
 ```
 
 Va a quedar disponible en `http://localhost:8080`.
@@ -58,7 +73,7 @@ Le agregué pruebas unitarias a las partes más importantes: la validación de d
 Para correrlas:
 
 ```bash
-mvnw test
+./mvnw test
 ```
 
 ## Swagger (documentación interactiva)
