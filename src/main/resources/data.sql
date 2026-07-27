@@ -35,7 +35,7 @@ SELECT * FROM (VALUES
 ) AS v(first_name, last_name, documento, phone, email, created_at, updated_at)
 WHERE NOT EXISTS (SELECT 1 FROM patients);
 
--- Citas (relaciona pacientes y doctores por su email/documento ya insertados arriba)
+-- Citas (relaciona pacientes y doctores por su email/documento ya insertados arriba.)
 INSERT INTO appointments (patient_id, doctor_id, appointment_date, status, observations, created_at, updated_at)
 SELECT * FROM (VALUES
     ((SELECT id FROM patients WHERE documento = '1001001001'), (SELECT id FROM doctors WHERE email = 'carlos.martinez@clinic.com'), TIMESTAMP '2026-07-27 08:30:00', 'PENDIENTE', 'Consulta inicial', now(), now()),

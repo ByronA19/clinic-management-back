@@ -1,12 +1,14 @@
 package com.clinic.clinic_management.infrastructure.web;
 
 import com.clinic.clinic_management.application.user.LoginUseCase;
+import com.clinic.clinic_management.infrastructure.web.dto.LoginRequest;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.media.Content;
 import io.swagger.v3.oas.annotations.media.ExampleObject;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.responses.ApiResponses;
 import io.swagger.v3.oas.annotations.tags.Tag;
+import jakarta.validation.Valid;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -35,8 +37,8 @@ public class AuthController {
                             examples = @ExampleObject(value = "{\"token\": \"eyJhbGciOi...\"}"))),
             @ApiResponse(responseCode = "401", description = "Credenciales inválidas", content = @Content)
     })
-    public ResponseEntity<?> login(@RequestBody Map<String, Object> payload) {
-        String token = loginUseCase.execute((String) payload.get("email"), (String) payload.get("password"));
+    public ResponseEntity<?> login(@Valid @RequestBody LoginRequest request) {
+        String token = loginUseCase.execute(request.email(), request.password());
         return ResponseEntity.ok(Map.of("token", token));
     }
 }
