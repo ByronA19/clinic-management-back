@@ -16,7 +16,7 @@ public class DeleteSpecialtyUseCase {
 
     public void execute(Long id) {
         specialtyRepositoryPort.findById(id)
-                .orElseThrow(() -> new NoSuchElementException("Specialty not found: " + id));
+                .orElseThrow(() -> new NoSuchElementException("Especialidad no encontrada: " + id));
         specialtyRepositoryPort.deleteById(id);
     }
 }

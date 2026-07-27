@@ -16,7 +16,7 @@ public class DeleteAppointmentUseCase {
 
     public void execute(Long id) {
         appointmentRepositoryPort.findById(id)
-                .orElseThrow(() -> new NoSuchElementException("Appointment not found: " + id));
+                .orElseThrow(() -> new NoSuchElementException("No se encontró cita: " + id));
         appointmentRepositoryPort.deleteById(id);
     }
 }

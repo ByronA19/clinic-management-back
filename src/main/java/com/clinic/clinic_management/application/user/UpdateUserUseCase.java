@@ -22,7 +22,7 @@ public class UpdateUserUseCase {
 
     public User execute(Long id, UpdateUserRequest request) {
         User user = userRepositoryPort.findById(id)
-                .orElseThrow(() -> new NoSuchElementException("User not found: " + id));
+                .orElseThrow(() -> new NoSuchElementException("Usuario no encontrado: " + id));
 
         if (request.fullName() != null) {
             user.setFullName(request.fullName());

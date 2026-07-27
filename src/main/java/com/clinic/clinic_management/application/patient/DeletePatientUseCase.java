@@ -16,7 +16,7 @@ public class DeletePatientUseCase {
 
     public void execute(Long id) {
         patientRepositoryPort.findById(id)
-                .orElseThrow(() -> new NoSuchElementException("Patient not found: " + id));
+                .orElseThrow(() -> new NoSuchElementException("Paciente no encontrado: " + id));
         patientRepositoryPort.deleteById(id);
     }
 }

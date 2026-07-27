@@ -19,7 +19,7 @@ public class UpdateAppointmentUseCase {
 
     public Appointment execute(Long id, UpdateAppointmentRequest request) {
         Appointment appointment = appointmentRepositoryPort.findById(id)
-                .orElseThrow(() -> new NoSuchElementException("Appointment not found: " + id));
+                .orElseThrow(() -> new NoSuchElementException("No se encontró cita: " + id));
 
         if (request.patientId() != null) {
             appointment.setPatientId(request.patientId());

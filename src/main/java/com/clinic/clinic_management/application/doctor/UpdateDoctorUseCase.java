@@ -19,7 +19,7 @@ public class UpdateDoctorUseCase {
 
     public Doctor execute(Long id, UpdateDoctorRequest request) {
         Doctor doctor = doctorRepositoryPort.findById(id)
-                .orElseThrow(() -> new NoSuchElementException("Doctor not found: " + id));
+                .orElseThrow(() -> new NoSuchElementException("Doctor no encontrado: " + id));
 
         if (request.firstName() != null) {
             doctor.setFirstName(request.firstName());

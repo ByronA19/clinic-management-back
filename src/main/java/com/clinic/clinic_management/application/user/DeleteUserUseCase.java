@@ -16,7 +16,7 @@ public class DeleteUserUseCase {
 
     public void execute(Long id) {
         userRepositoryPort.findById(id)
-                .orElseThrow(() -> new NoSuchElementException("User not found: " + id));
+                .orElseThrow(() -> new NoSuchElementException("Usuario no encontrado: " + id));
         userRepositoryPort.deleteById(id);
     }
 }
